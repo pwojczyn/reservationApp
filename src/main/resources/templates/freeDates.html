@@ -36,28 +36,9 @@
 
     <div class="starter-template">
 
-    <form th:action="@{/}" th:object="${reservationForm}" method="post">
-        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
-        <label>Imię</label>
-        <input class="form-control" placeholder="Imię" th:field="*{name}"> <br/>
-        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></div>
-        <label>Nazwisko</label>
-        <input class="form-control" placeholder="Nazwisko" th:field="*{lastname}"> <br/>
-        <br/>
-         <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('adres')}" th:errors="*{adres}" style="color: red"></div>
-        <label>Adres</label>
-        <input class="form-control" placeholder="Adres" th:field="*{adres}"><br/>
-        <br/>
-        <div class="alert alert-danger" role="alert"  th:if="${#fields.hasErrors('date')}" th:errors="*{date}" style="color: red"></div>
-        <label>Data rezerwacji</label>
-        <input class="form-control" placeholder="Data" th:field="*{date}"><br/>
-
-        <button type="button" class="btn btn-primary" type="submit" value="Wyślij">Zarezerwój samochód</button>
-
-    </form>
         <br /><br />
         <div class="container">
-            Zajęte terminy w następnym tygodniu
+            Zajęte terminy w następnych tygodniach
         <table class="table">
             <tr>
                 <th>Imię</th>
