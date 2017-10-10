@@ -80,7 +80,6 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<addClasspath>true</addClasspath>
 							<mainClass>com.pwojczyn.reservationApp.ReservationAppApplication</mainClass>
 						</manifest>
 					</archive>
