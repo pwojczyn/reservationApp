@@ -12,8 +12,6 @@ import java.time.LocalDate;
 
 @Controller
 public class FreeDatesController {
-    @Autowired
-    StringService stringService;
 
     @Autowired
     ReservationRepository reservationRepository;

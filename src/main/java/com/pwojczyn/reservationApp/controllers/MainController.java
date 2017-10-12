@@ -20,9 +20,6 @@ import java.time.LocalDate;
 public class MainController {
 
     @Autowired
-    StringService stringService;
-
-    @Autowired
     ReservationRepository reservationRepository;
 
     @GetMapping("/")
