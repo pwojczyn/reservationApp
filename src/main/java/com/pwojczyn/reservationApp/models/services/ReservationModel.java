@@ -21,6 +21,7 @@ public class ReservationModel {
     private String lastname;
     private LocalDate date;
     private String adres;
+    @Column(name="pin")
     private String pin;
 
     public ReservationModel(ReservationForm form) {
