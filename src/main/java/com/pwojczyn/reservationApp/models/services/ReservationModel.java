@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Random;
 
 @Data
 @Entity
@@ -20,12 +21,16 @@ public class ReservationModel {
     private String lastname;
     private LocalDate date;
     private String adres;
+    private String pin;
 
     public ReservationModel(ReservationForm form) {
         name = form.getName();
         lastname = form.getLastname();
         date = form.getFormatedDate();
         adres = form.getAdres();
+        pin = form.setPin();
     }
+
+
 
 }

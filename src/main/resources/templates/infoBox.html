@@ -32,32 +32,15 @@
 </nav>
 <br /><br /><br />
 <div class="container">
-    <span th:text="${infoBox}" style="color: red"></span>
+
 
     <div class="starter-template">
-
-        <br /><br />
-        <div class="container">
-            <div class="jumbotron">
-                <h1>Zajęte terminy w następnych tygodniach</h1>
-            </div>
-
-        <table class="table table-inverse">
-            <tr>
-                <th>Imię</th>
-                <th>Nazwisko</th>
-                <th>Adres</th>
-                <th>Data</th>
-            </tr>
-                <th:block th:each="reservation: ${reservations}">
-                    <th th:text="${reservation.name}"></th>
-                    <th th:text="${reservation.lastname}"></th>
-                    <th th:text="${reservation.adres}"></th>
-                    <th th:text="${reservation.date}"></th>
-
-                </th:block>
-        </table>
+        <div class="jumbotron">
+            <h1><span th:text="${infoBox}"</span></h1>
+            <h2>twój pin do drzwi: <span th:text="${infoPin}"</span></h2>
         </div>
+
+
     </div>
 
 </div>

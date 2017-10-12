@@ -8,6 +8,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Random;
 
 
 public class ReservationForm {
@@ -30,6 +31,8 @@ public class ReservationForm {
     @NotBlank
     @Size(min =5, max=75)
     private String adres;
+    @Getter
+    private String pin;
 
     DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
@@ -37,5 +40,20 @@ public class ReservationForm {
         //YYYY-MM-DD
         return LocalDate.parse(date, format);
 
+    }
+
+    public String setPin() {
+        this.pin = generatPin();
+        return this.pin;
+    }
+
+    public String generatPin(){
+        int tempInt = 0;
+        StringBuilder tempPin = new StringBuilder();
+        for(int i =1; i<=6; i++ ){
+            tempInt = new Random().nextInt(10);
+            tempPin.append(tempInt);
+        }
+        return tempPin.toString();
     }
 }

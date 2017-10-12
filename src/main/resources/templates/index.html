@@ -17,7 +17,7 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/">Strona główna <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Rezerwacja<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/free-dates">Wolne terminy</a>
@@ -32,10 +32,14 @@
 </nav>
 <br /><br /><br />
 <div class="container">
-    <span th:text="${errors}" style="color: red"></span>
+    <div class="jumbotron">
+        <h1>Rezerwacja Samochodu Miejskiego</h1>
+        <h2>w Bydgoszczy, Gdańsku, Poznaniu i Wrocławiu</h2>
+    </div>
+    <span th:text="${infoBox}" style="color: red"></span>
 
     <div class="starter-template">
-
+        <div class="col-8">
     <form th:action="@{/}" th:object="${reservationForm}" method="post">
         <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
         <label>Imię</label>
@@ -43,11 +47,9 @@
         <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></div>
         <label>Nazwisko</label>
         <input class="form-control" placeholder="Nazwisko" th:field="*{lastname}"> <br/>
-        <br/>
          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('adres')}" th:errors="*{adres}" style="color: red"></div>
         <label>Adres</label>
         <input class="form-control" placeholder="Adres" th:field="*{adres}"><br/>
-        <br/>
         <div class="alert alert-danger" role="alert"  th:if="${#fields.hasErrors('date')}" th:errors="*{date}" style="color: red"></div>
         <label>Data rezerwacji</label>
         <input class="form-control" placeholder="Data" th:field="*{date}"><br/>
@@ -55,10 +57,15 @@
         <button type="button" class="btn btn-primary" type="submit" value="Wyślij">Zarezerwój samochód</button>
 
     </form>
+        </div>
+
         <br /><br />
         <div class="container">
-            Zajęte terminy w następnym tygodniu
-        <table class="table">
+            <div class="container">
+                <div class="jumbotron">
+                    <h3>Zajęte terminy w następnych tygodniach</h3>
+                </div>
+        <table class="table table-inverse">
             <tr>
                 <th>Imię</th>
                 <th>Nazwisko</th>

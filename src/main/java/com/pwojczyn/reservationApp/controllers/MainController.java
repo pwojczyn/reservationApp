@@ -36,22 +36,23 @@ public class MainController {
     @PostMapping("/")
     public String index(@ModelAttribute("reservationForm") @Valid ReservationForm form, BindingResult result, Model model){
         if (result.hasErrors()){
+            model.addAttribute("reservations",reservationRepository.findByDateBetween(LocalDate.now(),LocalDate.now().plusWeeks(1)));
             return "index";
         }else if(reservationRepository.existsByDateEquals(form.getFormatedDate())){
-            model.addAttribute("errors","Termin już zajęty");
+            model.addAttribute("reservations",reservationRepository.findByDateBetween(LocalDate.now(),LocalDate.now().plusWeeks(1)));
+            model.addAttribute("infoBox","Termin już zajęty");
         }
         reservationRepository.save(new ReservationModel(form));
-        model.addAttribute("reservations",reservationRepository.findByDateBetween(LocalDate.now(),LocalDate.now().plusWeeks(1)));
-        return "index";
+        model.addAttribute("infoBox","Samochód został zarezerwowany");
+        model.addAttribute("infoPin",form.getPin());
+        return "infoBox";
     }
 
     @GetMapping("/test")
-    @ResponseBody
-    public String test(){
-//        List<ReservationModel> reservationModel =
-//               reservationRepository.findbyDateOrderByDesc();
+    public String test(@ModelAttribute("reservationForm") @Valid ReservationForm form, BindingResult result, Model model){
+        model.addAttribute("infoBox","Samochód został zarezerwowany");
+        model.addAttribute("infoPin",form.setPin());
+        return "infoBox";
 
-
-        return "dd";
     }
 }
