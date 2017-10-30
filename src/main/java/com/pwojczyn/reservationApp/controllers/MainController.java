@@ -51,5 +51,6 @@ public class MainController {
         model.addAttribute("infoPin",form.setPin());
         return "infoBox";
 
+
     }
 }

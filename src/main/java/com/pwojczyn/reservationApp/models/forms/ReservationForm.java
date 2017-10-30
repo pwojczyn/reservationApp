@@ -29,7 +29,6 @@ public class ReservationForm {
     @Getter
     @Setter
     @NotBlank
-    @Size(min =5, max=75)
     private String adres;
     @Getter
     private String pin;
